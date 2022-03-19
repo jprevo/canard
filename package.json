@@ -1,0 +1,25 @@
+{
+  "name": "canard",
+  "version": "1.0.0",
+  "description": "CPC post analysis",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc --incremental"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jprevo/canard.git"
+  },
+  "author": "Awake",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jprevo/canard/issues"
+  },
+  "homepage": "https://github.com/jprevo/canard#readme",
+  "dependencies": {
+    "@types/node": "^17.0.21",
+    "cheerio": "^1.0.0-rc.10",
+    "moment": "^2.29.1",
+    "typescript": "^4.6.2"
+  }
+}

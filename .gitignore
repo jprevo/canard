@@ -1,0 +1,6 @@
+/etc
+/tmp
+/data
+/node_modules
+/dist
+/script/.env
