@@ -1,0 +1,157 @@
+{
+  "infos": {
+    "username": "Maximelene",
+    "id": 16662,
+    "url": "members/16662-Maximelene",
+    "avatar_url": "customavatars/avatar16662_49.gif",
+    "message_count": 582
+  },
+  "messages": {
+    "sentence": 3510,
+    "exclamation": 143,
+    "question": 269,
+    "dot": 2528,
+    "quote": 806,
+    "image": 16,
+    "video": 9,
+    "link": 442
+  },
+  "smiley": {
+    "images/smilies/langue2.png": {
+      "count": 88,
+      "percent": 20.18348623853211
+    },
+    "images/smilies/sad2.png": {
+      "count": 18,
+      "percent": 4.128440366972478
+    },
+    "images/smilies/lapinsmilecn5.png": {
+      "count": 12,
+      "percent": 2.7522935779816518
+    },
+    "images/smilies/ninja.png": {
+      "count": 100,
+      "percent": 22.93577981651376
+    },
+    "images/smilies/tired.png": {
+      "count": 10,
+      "percent": 2.293577981651376
+    },
+    "images/smilies/lapinokju1.png": {
+      "count": 29,
+      "percent": 6.651376146788992
+    },
+    "images/smilies/rolleyes_anim.gif": {
+      "count": 22,
+      "percent": 5.045871559633028
+    },
+    "images/smilies/huh.png": {
+      "count": 12,
+      "percent": 2.7522935779816518
+    },
+    "images/smilies/troppuissant.png": {
+      "count": 10,
+      "percent": 2.293577981651376
+    },
+    "images/smilies/gerbe.png": {
+      "count": 4,
+      "percent": 0.9174311926605505
+    },
+    "images/smilies/nelson.gif": {
+      "count": 1,
+      "percent": 0.22935779816513763
+    },
+    "images/smilies/ohmy2.png": {
+      "count": 13,
+      "percent": 2.981651376146789
+    },
+    "images/smilies/wtf.gif": {
+      "count": 3,
+      "percent": 0.6880733944954129
+    },
+    "images/smilies/2015/facepalm.png": {
+      "count": 13,
+      "percent": 2.981651376146789
+    },
+    "images/smilies/2015/angry.gif": {
+      "count": 10,
+      "percent": 2.293577981651376
+    },
+    "images/smilies/siffledo2.gif": {
+      "count": 1,
+      "percent": 0.22935779816513763
+    },
+    "images/smilies/2015/vibre.gif": {
+      "count": 5,
+      "percent": 1.146788990825688
+    },
+    "images/smilies/2015/sweat.gif": {
+      "count": 2,
+      "percent": 0.45871559633027525
+    },
+    "images/smilies/hum.png": {
+      "count": 8,
+      "percent": 1.834862385321101
+    },
+    "images/smilies/love.png": {
+      "count": 1,
+      "percent": 0.22935779816513763
+    },
+    "images/smilies/trollface.gif": {
+      "count": 15,
+      "percent": 3.4403669724770642
+    },
+    "images/smilies/unsure_anim2.gif": {
+      "count": 8,
+      "percent": 1.834862385321101
+    },
+    "images/smilies/laugh.png": {
+      "count": 9,
+      "percent": 2.064220183486239
+    },
+    "images/smilies/emo.png": {
+      "count": 11,
+      "percent": 2.522935779816514
+    },
+    "images/smilies/XD2.png": {
+      "count": 4,
+      "percent": 0.9174311926605505
+    },
+    "images/smilies/love_anim.gif": {
+      "count": 9,
+      "percent": 2.064220183486239
+    },
+    "images/smilies/bof.png": {
+      "count": 5,
+      "percent": 1.146788990825688
+    },
+    "images/smilies/mellow.gif": {
+      "count": 6,
+      "percent": 1.3761467889908259
+    },
+    "images/smilies/2015/indeed.gif": {
+      "count": 1,
+      "percent": 0.22935779816513763
+    },
+    "images/smilies/2015/red.gif": {
+      "count": 3,
+      "percent": 0.6880733944954129
+    },
+    "images/smilies/happy2.png": {
+      "count": 1,
+      "percent": 0.22935779816513763
+    },
+    "images/smilies/bave.png": {
+      "count": 2,
+      "percent": 0.45871559633027525
+    }
+  },
+  "avatar": {
+    "topic": "comic book\n"
+  },
+  "sentiment": {
+    "positive": 89,
+    "neutral": 2137,
+    "negative": 795
+  }
+}

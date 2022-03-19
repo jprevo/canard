@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" rel="stylesheet">
+    <title>Statistiques de la communauté Canard PC</title>
+</head>
+<body>
+
+    <div class="container">
+        <header class="mt-5">
+            <h1>Statistiques de la communauté Canard PC</h1>
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="mt-5">
+            <p class="lead">Trouver un canard :</p>
+
+            <form method="get" action="index.html" id="search-form">
+                <input type="search" class="form-control form-control-lg" placeholder="Pseudo...">
+            </form>
+
+            <div id="search-result"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="content" class="mt-5"></div>
+    </div>
+
+    <div class="container">
+        <footer class="mt-5">
+            <a href="https://github.com/jprevo/canard/blob/main/LICENSE">Licence Apache 2.0</a> ·
+            <a href="https://github.com/jprevo/canard">Github</a> ·
+            <a href="https://forum.canardpc.com/members/15812-Awake">Développé par Awake</a>
+        </footer>
+    </div>
+
+    <script type="text/html" id="tpl-search-result">
+        <div class="list-group">
+            {% for duck in ducks %}
+                <a href="#{{ duck.id }}" data-id="{{ duck.id }}" class="list-group-item list-group-item-action">{{ duck.username }}</a>
+            {% endfor %}
+        </div>
+    </script>
+
+    <script type="text/html" id="tpl-layout">
+        <div class="d-flex">
+            <div class="m-3">{{ infos|safe }}</div>
+            <div class="flex-grow-1 m-3">{{ messages|safe }}</div>
+        </div>
+        <div class="d-flex">
+            <div class="m-3">{{ sentiment|safe }}</div>
+            <div class="flex-grow-1 m-3">{{ smiley|safe }}</div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tpl-userinfos">
+        <div class="card" style="width: 275px;">
+            <img src="https://forum.canardpc.com/{{ duck.infos.avatar_url }}" class="card-img-top" alt="Avatar" style="width: 100%">
+            <div class="card-body">
+                <h5 class="card-title">{{ duck.infos.username }}</h5>
+                <div class="card-text">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Avatar : <strong>{{ duck.avatar.topic }}</strong></li>
+                        <li class="list-group-item">ID : <strong>{{ duck.infos.id }}</strong></li>
+                        <li class="list-group-item">Messages utilisés : <strong>{{ duck.infos.message_count }}</strong></li>
+                        <li class="list-group-item"><a href="https://forum.canardpc.com/{{ duck.infos.url }}">Profil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tpl-messages">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Messages</h5>
+                <div class="card-text">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Phrases totales : <strong>{{ duck.messages.sentence }}</strong></li>
+                        <li class="list-group-item">Phrases finies par un "." : <strong>{{ duck.messages.dot }}</strong></li>
+                        <li class="list-group-item">Phrases finies par un "!" : <strong>{{ duck.messages.exclamation }}</strong></li>
+                        <li class="list-group-item">Phrases finies par un "?" : <strong>{{ duck.messages.question }}</strong></li>
+                        <li class="list-group-item">Liens postés : <strong>{{ duck.messages.link }}</strong></li>
+                        <li class="list-group-item">Images postées : <strong>{{ duck.messages.image }}</strong></li>
+                        <li class="list-group-item">Quotes postées : <strong>{{ duck.messages.quote }}</strong></li>
+                        <li class="list-group-item">Vidéos postées : <strong>{{ duck.messages.video }}</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tpl-sentiment">
+        <div class="card" style="width:275px;">
+            <div class="card-body">
+                <h5 class="card-title">Sentiment par phrase</h5>
+                <div class="card-text">
+                    <div class="d-flex flex-column">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Neutre : <strong>{{ duck.sentiment.neutral }}</strong></li>
+                            <li class="list-group-item">Positif : <strong>{{ duck.sentiment.positive }}</strong></li>
+                            <li class="list-group-item">Négatif : <strong>{{ duck.sentiment.negative }}</strong></li>
+                        </ul>
+                        <div id="sentiment-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="tpl-smiley">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Smileys</h5>
+                <div class="card-text">
+                    <div class="row">
+                        {% for smiley in smileys %}
+                        <div class="col-12 col-md-6 col-lg-2">
+                            <div class="border border-1 rounded-pill text-center mb-2 p-2" style="opacity: {{ smiley.opacity }}%">
+                                <img src="https://forum.canardpc.com/{{ smiley.url }}"><br>
+                                {{ smiley.percent }}% <br>
+                                <small class="text-muted">{{ smiley.count }}</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
+    <script src="core.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ export class Analysis {
         this.data = JSON.parse(fs.readFileSync("./data/index.json", "utf8"));
 
         this.processors = [
-            //new Sentiment(),
+            new Sentiment(),
             new Avatar(),
             new Infos(),
             new MessageStats(),
@@ -37,6 +37,7 @@ export class Analysis {
                 processor.execute(userData)
                     .then((processorResult: any) => {
                         result[processor.getEntryPoint()] = processorResult;
+                        console.log(`Processor ${processor.getEntryPoint()} done`);
                     })
             );
         }
